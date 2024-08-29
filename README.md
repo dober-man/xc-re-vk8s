@@ -7,6 +7,12 @@ In this simplified diaggram this shows how globally distributed users access res
 
 <img width="1017" alt="image" src="https://github.com/user-attachments/assets/09fac75c-5297-4df9-a01d-db4598677337">
 
+### The Setup
+RE Only vK8's is by far the easiest way to get started although it comes with a decent list of restictions as shown in the diagram. The upside is, it is extremely easy to get configured and it's globally distributed with a ton of front door security features. 
+
+
+
+
 ## CE vk8s
 
 ## RE + CE vk8s
