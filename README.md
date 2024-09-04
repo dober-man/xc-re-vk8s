@@ -84,7 +84,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -98,6 +98,13 @@ spec:
           image: ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
           ports:
             - containerPort: 1024
+          resources:
+            limits:
+              cpu: "1"
+              memory: "200Mi"
+            requests:
+              cpu: "0.5"
+              memory: "100Mi"
 ```
 
 
