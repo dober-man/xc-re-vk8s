@@ -60,12 +60,20 @@ Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the 
 
 You will use this file with your local kubectl utility to interact with the vk8s namespace. Feel free to open and inspect the file. 
 
-### Workloads, Deployments or Static Pods?
+### Workloads or Deployments?
 
-<img width="1124" alt="image" src="https://github.com/user-attachments/assets/ddbb8ba5-ba03-40fd-bf8f-59d9bfdf5338">
+Deployments are a native Kubernetes. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
 
-#### Static Pods
-Static pods don’t offer the benefits of self-healing, scaling, or updates that controllers like Deployment or StatefulSet provide. Static pods is generally not recommended in production environments. 
+Workloads are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner.
+
+Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure.
+
+Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling.
+
+<img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
+
+#### Deployments
+ kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl --replicas=2
 
 
 
