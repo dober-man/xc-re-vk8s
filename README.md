@@ -75,14 +75,14 @@ Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionalit
 #### Deployments
 Imperative: 
 ```
-kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
 ```
 
 Declarative: 
 ```
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-declar
 spec:
   replicas: 1
   selector:
