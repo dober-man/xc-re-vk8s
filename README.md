@@ -52,8 +52,20 @@ Save and Exit and you should see this:
 Clicking on the vk8s name hyperlink will take you into the configurable area. Notice the 5 Regional Edge sites shown at the bottom based on our vsite USA definitions. 
 <img width="1112" alt="image" src="https://github.com/user-attachments/assets/e138fdfa-709a-495a-a903-cab7e5f9255a">
 
+
+### Download your Kubeconfig file
+Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the Actions menu on the far right -> Kubeconfig -> (select a security conscious expiration date and treat this file appropriately as it contains highly sensitive data.  
+
+<img width="1107" alt="image" src="https://github.com/user-attachments/assets/fee82676-cb7d-4037-802d-39d95271f503">
+
+You will use this file with your local kubectl utility to interact with the vk8s namespace. Feel free to open and inspect the file. 
+
 ### Workloads, Deployments or Static Pods?
 
+<img width="1124" alt="image" src="https://github.com/user-attachments/assets/ddbb8ba5-ba03-40fd-bf8f-59d9bfdf5338">
+
+#### Static Pods
+Static pods don’t offer the benefits of self-healing, scaling, or updates that controllers like Deployment or StatefulSet provide. Static pods is generally not recommended in production environments. 
 
 
 
