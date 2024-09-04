@@ -49,14 +49,10 @@ Configure the RE workload flavor as show in the screenshot. You have more option
 Save and Exit and you should see this: 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/6a8120ba-059d-4e34-85be-a9ac9726952c">
 
-Clicking on the vk8s name hyperlink will take you into the configurable area. Notice the 5 Regional Edges shown based on our vsite definitions. 
+Clicking on the vk8s name hyperlink will take you into the configurable area. Notice the 5 Regional Edge sites shown at the bottom based on our vsite USA definitions. 
 <img width="1112" alt="image" src="https://github.com/user-attachments/assets/e138fdfa-709a-495a-a903-cab7e5f9255a">
 
-
-
-
-
-
+### Workloads, Deployments or Static Pods?
 
 
 
