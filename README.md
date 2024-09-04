@@ -46,6 +46,9 @@ Configure the RE workload flavor as show in the screenshot.
 
 <img width="781" alt="image" src="https://github.com/user-attachments/assets/7a23b89a-8c50-42cb-b274-bd5f8173cdbb">
 
+<img width="772" alt="image" src="https://github.com/user-attachments/assets/6d190368-3b90-4da2-90a7-79badf46e1b3">
+
+
 
 
 
