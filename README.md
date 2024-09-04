@@ -53,18 +53,20 @@ Clicking on the vk8s name hyperlink will take you into the configurable area. No
 <img width="1112" alt="image" src="https://github.com/user-attachments/assets/e138fdfa-709a-495a-a903-cab7e5f9255a">
 
 
-### Download your Kubeconfig file
+### Download your Kubeconfig file (optional)
+You can use the kubeconfig file locally to manage resources in XC Console vK8s and/or you can manage resources directly within the XC Console by pasting in your yaml definitions.
+
 Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the Actions menu on the far right -> Kubeconfig -> (select a security conscious expiration date and treat this file appropriately as it contains highly sensitive data.  
 
 <img width="1107" alt="image" src="https://github.com/user-attachments/assets/fee82676-cb7d-4037-802d-39d95271f503">
 
-You will use this file with your local kubectl utility to interact with the vk8s namespace. Feel free to open and inspect the file. 
+You will use this file with your local kubectl utility to authenticate and interact with the vk8s namespace. Feel free to open and inspect the file content...but keep it secure. 
 
 ### Workloads or Deployments?
 
-Deployments are a native Kubernetes. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
+**Deployments** are a native Kubernetes. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
 
-Workloads are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner.
+**Workloads** are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner.
 
 Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure.
 
@@ -73,12 +75,13 @@ Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionalit
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 
 #### Deployments
-Imperative: 
+
+**Imperative**
 ```
 kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
 ```
 
-Declarative: 
+**Declarative**
 ```
 kind: Deployment
 metadata:
