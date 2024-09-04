@@ -73,9 +73,32 @@ Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionalit
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 
 #### Deployments
- kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl --replicas=2
+Imperative: 
+```
+kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+```
 
-
+Declarative: 
+```
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+          ports:
+            - containerPort: 1024
+```
 
 
 
