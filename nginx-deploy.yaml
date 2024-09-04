@@ -14,7 +14,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 1024
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 1024
