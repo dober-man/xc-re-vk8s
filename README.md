@@ -11,7 +11,7 @@ You can deploy vK8s in 3 architectures. Each has unique advantages and unique re
 ## RE Only vk8s
 This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination to their source. The vK8s namespace is replicated across all the PoPs making the pods globally redundant and available closest to the source. 
 
-<img width="994" alt="image" src="https://github.com/user-attachments/assets/d8f532c4-0bb2-415a-9b51-4207f501fece">
+<img width="985" alt="image" src="https://github.com/user-attachments/assets/d90f7a00-c40a-468c-95b2-fc97ee5116dc">
 
 
 ### The Setup
