@@ -186,6 +186,8 @@ Make a host file entry on your local machine to point nginx.example.com to the I
 
 **AiC Method**
 
+Testing the AiC method simply involves making a change to the workload and manually building an origin pool and load balancer. The real benefit of this method will be clear momentarily. 
+
 
 
 
