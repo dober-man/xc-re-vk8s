@@ -188,8 +188,24 @@ Make a host file entry on your local machine to point nginx.example.com to the I
 
 Testing the AiC method simply involves making a change to the workload and manually building an origin pool and load balancer. The real benefit of this method will be clear momentarily. 
 
+Navigate to Home -> Distributed Apps -> Applications -> Virtual K8s -> click on your vK8s name, click the "Workloads" tab and then click the actions button on the far right under your workload name. Choose "Manage Configuration". 
 
+<img width="1119" alt="image" src="https://github.com/user-attachments/assets/6ca64a5d-5ef4-4198-9e3e-b25f832244e5">
 
+Edit Configuration
+
+<img width="1174" alt="image" src="https://github.com/user-attachments/assets/d91da46a-6b8c-41ea-b656-270e80a474b5">
+
+Edit Service Configuration
+
+<img width="583" alt="image" src="https://github.com/user-attachments/assets/4f9b8a39-c5c5-4066-b7c9-c481fd74bd82">
+
+Advertise Options: Advertise in Cluster - click the blue "Configure"
+
+<img width="501" alt="image" src="https://github.com/user-attachments/assets/0e9fe677-e746-4b34-8ae1-79e94caa5cf3">
+
+Advertise in cluster config
+<img width="839" alt="image" src="https://github.com/user-attachments/assets/03495427-7cca-418f-8f2e-5218b287c768">
 
 
 
