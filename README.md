@@ -1,4 +1,4 @@
-# xc-vK8s
+# XC vK8s
 Virtual Kubernetes (vK8s) in F5 Distributed Cloud allows users to run Kubernetes workloads across multiple cloud environments without managing the underlying Kubernetes control plane. It offers seamless integration with F5’s Distributed Cloud Services, enabling centralized management, scaling, and security for Kubernetes applications across hybrid and multi-cloud infrastructures.
 
 Start here for a thorough overview of vK8s and deployment considerations: 
