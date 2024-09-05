@@ -143,7 +143,6 @@ Within a few moments you should see your workload status
 
 <img width="1121" alt="image" src="https://github.com/user-attachments/assets/d1d1c004-ec91-4ae1-b775-3a022aaa7831">
 
-
 Click on the "Deployments" tab and review the deployment deployed as part of the workload. 
 
 <img width="897" alt="image" src="https://github.com/user-attachments/assets/75d8f8e0-1383-4f8a-9e09-5aa8feb1529f">
@@ -159,6 +158,37 @@ Click on the "Replica Sets" tab and review the Replica Sets deployed as part of 
 Click on the "Pods" tab and review the Pods deployed as part of the workload. 
 
 <img width="1120" alt="image" src="https://github.com/user-attachments/assets/4c5f4ffc-7f9a-488b-91c6-7950255386c7">
+
+Click on "Home" and then click on Multi-cloud App Connect
+
+<img width="485" alt="image" src="https://github.com/user-attachments/assets/d21f6abf-6b63-4b36-a13a-b5bb18f9c866">
+
+From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
+
+You will see the load balancer that was automatically created as part of the workload definitions. 
+
+<img width="1122" alt="image" src="https://github.com/user-attachments/assets/0a142113-0862-4feb-b7e2-20df3f1286f2">
+
+Click the "Actions" button and notice that there is no option to manage or edit the load balancer directly. To modify any aspect of the load balancer it would need to be initiated from the workload. 
+
+<img width="1109" alt="image" src="https://github.com/user-attachments/assets/e6a93474-893d-40c4-a040-fac247fe9dc1">
+
+#### Testing Access to the service
+Click the little down arrow next to the load balancer 
+<img width="1102" alt="image" src="https://github.com/user-attachments/assets/445ebb78-3fb4-4422-a8c7-724162c1c7c5">
+
+Scroll down to around line 95 and find your IP address. 
+<img width="346" alt="image" src="https://github.com/user-attachments/assets/ebeab53d-ee59-4e0e-bf9d-22b6bbdfb937">
+
+Make a host file entry on your local machine to point nginx.example.com to the IP address in your config.
+
+<img width="771" alt="image" src="https://github.com/user-attachments/assets/b66a9b93-2e54-4772-a6a3-fd6fc8ece100">
+
+**AiC Method**
+
+
+
+
 
 
 #### Deployments
