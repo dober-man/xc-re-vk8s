@@ -73,6 +73,10 @@ Use Deployments when managing stateless applications that need to be easily upda
 Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling.
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
+<br>
+<br>
+
+> **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container will natively start on a high port (8080) that does not require root to bind to. 
 
 #### Workloads
 Starting with the most commonly used method to deploy vk8s services, we will use a workload to deploy our example app. 
@@ -110,7 +114,7 @@ This setting is similar to AoI and while this automatically creates a vK8s servi
 
 #### Deployments
 
-The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. 
+The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container will natively start on a high port (8080) that does not require root to bind to. 
 
 **Imperative**
 ```
