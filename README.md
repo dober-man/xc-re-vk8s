@@ -24,6 +24,8 @@ A virtual site provides a mechanism to perform operations on a group of sites, r
 
 Ultimately, the virtual site defines where our virtual k8s pods will be running. In this lab we will be defining North American Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
 
+
+Here is a look at the default Virtual Sites that could be used but we will be taking a more granular approach. 
 <img width="922" alt="image" src="https://github.com/user-attachments/assets/7bab32c8-8359-44d7-b401-6c473038937d">
 
 Define a Custom Virtual Site for just USA based Regional Edges: 
@@ -44,7 +46,7 @@ Distributed Apps -> Applications -> Virtual K8s -> "Add Virtual K8s" (You can ha
 * Default Workload Flavor: "Add Item"
   
 These values are not arbitrary and must be defined appropriately given this deployement model uses our Regional Edges which have finite resources. 
-Configure the RE workload flavor as show in the screenshot. You have more options when using the Customer Edge exclusively for your vk8s implementation (covered further down) 
+Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vk8s implementation (covered further down in this article) 
 
 <img width="781" alt="image" src="https://github.com/user-attachments/assets/7a23b89a-8c50-42cb-b274-bd5f8173cdbb">
 
@@ -56,7 +58,7 @@ Clicking on the vk8s name hyperlink will take you into the configurable area. No
 
 
 ### Download your Kubeconfig file (optional)
-You can use the kubeconfig file locally to manage resources in XC Console vK8s and/or you can manage resources directly within the XC Console by pasting in your yaml definitions.
+You can use the kubeconfig file locally to manage resources in XC Console vK8s and/or you can manage resources directly within the XC Console by pasting in your yaml definitions. We will look at both methods. 
 
 Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the Actions menu on the far right -> Kubeconfig -> (select a security conscious expiration date and treat this file appropriately as it contains highly sensitive data.  
 
