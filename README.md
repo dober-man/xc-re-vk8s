@@ -125,15 +125,40 @@ Either method (AoI or AiC) could be used to publish the app or service but which
 
 **AoI Method**
 
-<img width="608" alt="image" src="https://github.com/user-attachments/assets/13eec596-e468-4ac4-83b3-15cad08974ca">
+For Advertise Options, select "Advertise on Internet" from the dropdown and click the blue "Configure". 
+
+<img width="514" alt="image" src="https://github.com/user-attachments/assets/e4d70a63-7316-4e2a-87e1-b7dfb10e9f2a">
 
 
+Define the port information and then click the blue "Configure" under HTTP/HTTPS Load Balancer.
+
+<img width="836" alt="image" src="https://github.com/user-attachments/assets/25423fbb-5416-4517-a8a6-08014c8131fb">
+
+Configure the load balancer as shown below. 
+<img width="831" alt="image" src="https://github.com/user-attachments/assets/0dcc11b8-815c-4244-8feb-e10add310602">
+
+Click Apply, Apply, Apply, and finally Save and Exit. 
+
+Within a few moments you should see your workload status 
+
+<img width="1121" alt="image" src="https://github.com/user-attachments/assets/d1d1c004-ec91-4ae1-b775-3a022aaa7831">
 
 
+Click on the "Deployments" tab and review the deployment deployed as part of the workload. 
 
+<img width="897" alt="image" src="https://github.com/user-attachments/assets/75d8f8e0-1383-4f8a-9e09-5aa8feb1529f">
 
+Click on the "Services" tab and review the services deployed as part of the workload. 
 
+<img width="954" alt="image" src="https://github.com/user-attachments/assets/9baae205-b236-4560-b6d8-2138fedd002d">
 
+Click on the "Replica Sets" tab and review the Replica Sets deployed as part of the workload. 
+
+<img width="1124" alt="image" src="https://github.com/user-attachments/assets/fe850d59-0c42-4cf8-b5b2-b7cb6fe308ca">
+
+Click on the "Pods" tab and review the Pods deployed as part of the workload. 
+
+<img width="1120" alt="image" src="https://github.com/user-attachments/assets/4c5f4ffc-7f9a-488b-91c6-7950255386c7">
 
 
 #### Deployments
