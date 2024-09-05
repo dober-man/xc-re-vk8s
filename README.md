@@ -207,6 +207,15 @@ Advertise Options: Advertise in Cluster - click the blue "Configure"
 Advertise in cluster config
 <img width="839" alt="image" src="https://github.com/user-attachments/assets/03495427-7cca-418f-8f2e-5218b287c768">
 
+Apply, Apply, Save & Exit. 
+
+Test access to the site again. 
+
+<img width="745" alt="image" src="https://github.com/user-attachments/assets/f4f68964-c831-4af3-b1e7-b820d980cfe9">
+
+Click on "Home" and then click on Multi-cloud App Connect and from the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
+
+
 
 
 #### Deployments
