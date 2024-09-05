@@ -20,9 +20,9 @@ This simplified diagram shows how globally distributed users access resources cl
 "RE Only" vK8's is by far the easiest way to get started although it comes with a decent list of restictions as shown in the diagram. The upside is, it is extremely easy to get configured, 100% on our infrastucture (nothing to manage) and it's globally distributed with a ton of front door security features. 
 
 #### Virtual Site
-A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Each label consists of a key-value pair. There are no limitations on the type of sites that can be grouped together. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define our Regional Edges as a grouping but chances are you are going to want to limit which Regions participate in vK8s. 
+A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Each label consists of a key-value pair. There are no limitations on the type of sites that can be grouped together. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define our Regional Edges as a grouping but chances are, you may want to limit which Regions participate in vK8s. 
 
-Ultimately, the virtual site defines where our virtual k8s pods will be running. In this lab we will be defining North American Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
+Ultimately, the "Virtual Site" defines where our virtual k8s pods will be running. In this lab we will be defining USA Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
 
 
 Here is a look at the default Virtual Sites that could be used but we will be taking a more granular approach. 
@@ -45,7 +45,7 @@ Distributed Apps -> Applications -> Virtual K8s -> "Add Virtual K8s" (You can ha
 * Virtual Sites: default/my-vsite-usa
 * Default Workload Flavor: "Add Item"
   
-These values are not arbitrary and must be defined appropriately given this deployement model uses our Regional Edges which have finite resources. 
+These values are not arbitrary and must be defined appropriately given this deployment model uses our Regional Edges which have finite resources. 
 Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vK8s implementation (covered further down in this article) 
 
 <img width="781" alt="image" src="https://github.com/user-attachments/assets/7a23b89a-8c50-42cb-b274-bd5f8173cdbb">
@@ -107,18 +107,33 @@ Use the USA based regional edge virtual site:
 
 <img width="336" alt="image" src="https://github.com/user-attachments/assets/29061427-6e81-4401-9502-6c2ae33ca6c0">
 
-**Advertise Options:**
-Advertise on Internet (AoI) vs Advertise in Cluster (AiC)
+### Advertise Options - Advertise on Internet (AoI) vs Advertise in Cluster (AiC)
+
+**Advertise on Internet (AoI)** 
 
 AoI does exactly what it sounds like. AoI preconfigures a service to expose the pods in vK8s, an origin pool referencing the service and finally a public, globally-redundant load balancer. 
-AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer. You can not change or add anything outside of what is offered in the AoI config definitions. When we choose AoI we limit the amount of steps we need to take to deploy but we also are limited in terms of adding any additional functionality to the load balancer.
 
+AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer or change or add anything outside of what is offered in the AoI config definition form. This is similar to the iApp feature on BIG-IP. When we choose AoI, we limit the amount of steps we need to take to deploy an app but we also are limited in terms of adding any additional functionality to the load balancer in support of the app.
+
+**Advertise in Cluster (AiC)**
+
+This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer and deploy it to the Virtual Site appropriate to provide access to the service. For example, a load balancer running on a CE, publishing services to other clusters or to internal clients. 
+
+The benefit of this model is the entire suite of XC security capabilities can be configured on the load balancer that weren't exposed in the AoI model. You can add WAAP, API Discovery, Bot mitigation and a whole bunch of other XC security services to protect the app. 
+
+Either method (AoI or AiC) could be used to publish the app or service but which method you use will determine which post-deployment features are available for the service. We will explore the configuration and outcome of each method now. 
+
+**AoI Method**
 
 <img width="608" alt="image" src="https://github.com/user-attachments/assets/13eec596-e468-4ac4-83b3-15cad08974ca">
 
 
-Advertise in Cluster 
-This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer and deploy it where necessary to provide access to the service.  The benefit of this model is the entire suite of capabilities can be configured on the load balancer that weren't exposed in the AoI model. Either method could be used to ultimately expose the service but which method you use will determine which post-deployment features are available for the service. 
+
+
+
+
+
+
 
 
 #### Deployments
