@@ -104,15 +104,18 @@ Click the blue "Configure" under "Regional Edge Virtual Sites"
 <img width="845" alt="image" src="https://github.com/user-attachments/assets/b141c359-068f-4b37-937a-977b8e845803">
 
 Use the USA based regional edge virtual site: 
+
 <img width="336" alt="image" src="https://github.com/user-attachments/assets/29061427-6e81-4401-9502-6c2ae33ca6c0">
 
 **Advertise Options:**
 Advertise on Internet (AoI) vs Advertise in Cluster (AiC)
 
 AoI does exactly what it sounds like. AoI preconfigures a service to expose the pods in vK8s, an origin pool referencing the service and finally a public, globally-redundant load balancer. 
-AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer. You can not change or add anything outside of what is offered in the AoI config definitions. When we choose AOI we limit the amount of steps we need to take to deploy but we also are limited in terms of adding any additional functionality to the load balancer.**
+AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer. You can not change or add anything outside of what is offered in the AoI config definitions. When we choose AoI we limit the amount of steps we need to take to deploy but we also are limited in terms of adding any additional functionality to the load balancer.
+
 
 <img width="608" alt="image" src="https://github.com/user-attachments/assets/13eec596-e468-4ac4-83b3-15cad08974ca">
+
 
 Advertise in Cluster 
 This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer and deploy it where necessary to provide access to the service.  The benefit of this model is the entire suite of capabilities can be configured on the load balancer that weren't exposed in the AoI model. Either method could be used to ultimately expose the service but which method you use will determine which post-deployment features are available for the service. 
