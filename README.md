@@ -20,7 +20,9 @@ This simplified diagram shows how globally distributed users access resources cl
 "RE Only" vK8's is by far the easiest way to get started although it comes with a decent list of restictions as shown in the diagram. The upside is, it is extremely easy to get configured, 100% on our infrastucture (nothing to manage) and it's globally distributed with a ton of front door security features. 
 
 #### Virtual Site
-A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Each label consists of a key-value pair. There are no limitations on the type of sites that can be grouped together. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define our Regional Edges as a grouping but chances are you are going to want to limit which Regions participate in vk8s. Ultimately, the virtual site defines where our virtual k8s pods will be running. In this lab we will be defining North American Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
+A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Each label consists of a key-value pair. There are no limitations on the type of sites that can be grouped together. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define our Regional Edges as a grouping but chances are you are going to want to limit which Regions participate in vk8s. 
+
+Ultimately, the virtual site defines where our virtual k8s pods will be running. In this lab we will be defining North American Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
 
 <img width="922" alt="image" src="https://github.com/user-attachments/assets/7bab32c8-8359-44d7-b401-6c473038937d">
 
