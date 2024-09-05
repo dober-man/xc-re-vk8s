@@ -74,11 +74,55 @@ Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionalit
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 
+#### Workloads
+Starting with the most commonly used method to deploy vk8s services, we will use a workload to deploy our example app. 
+The workload will define our entire application, including the deployment, pods, service, load balancer and origin pool. 
+
+Distributed Apps -> Applications -> Virtual K8s -> "Click on your vk8s name". 
+
+From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form.
+
+<img width="774" alt="image" src="https://github.com/user-attachments/assets/8484d74d-1386-4c12-a2f2-6c6d64bc5776">
+
+Click the blue "Configure" under "Service". 
+
+Containers -> Add Item
+Image Name: ```ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl```
+<img width="745" alt="image" src="https://github.com/user-attachments/assets/fb24118b-09e4-4d38-8d6f-3cdfab89f835">
+
+Deploy Options: 
+Choose: "Regional Edge Virtual Site"
+Click the blue "Configure" under "Regional Edge Virtual Sites"
+<img width="845" alt="image" src="https://github.com/user-attachments/assets/b141c359-068f-4b37-937a-977b8e845803">
+
+Use the USA based regional edge virtual site: 
+<img width="336" alt="image" src="https://github.com/user-attachments/assets/29061427-6e81-4401-9502-6c2ae33ca6c0">
+
+Advertise Options: 
+Advertise on Internet vs Advertise in Cluster
+
+Advertise on Internet does exactly what it sounds like. AoI preconfigures a service to expose the pods in vK8s, an origin pool referencing the service and finally a public globally-redundant load balancer. 
+<img width="608" alt="image" src="https://github.com/user-attachments/assets/13eec596-e468-4ac4-83b3-15cad08974ca">
+
+Advertise in Cluster 
+This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer and deploy it where necessary to provide access to the service.  
+
+
 #### Deployments
+
+The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. 
 
 **Imperative**
 ```
 kubectl --kubeconfig=vk8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+```
+**Nodeport** (Need to test)
+```
+kubectl --kubeconfig=vk8s.kubeconfig expose deployment nginx-imper --type=NodePort --port=2000 --target-port=8080 --node-port=32000
+```
+**ClusterIP** (Need to test)
+```
+kubectl --kubeconfig=vk8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
 
 **Declarative**
