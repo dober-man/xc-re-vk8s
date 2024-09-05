@@ -68,7 +68,7 @@ You will use this file with your local kubectl utility to authenticate and inter
 
 ### Workloads or Deployments?
 
-**Deployments** are a native Kubernetes. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
+**Deployments** are a native Kubernetes construct. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
 
 **Workloads** are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner.
 
