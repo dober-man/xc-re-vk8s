@@ -6,9 +6,9 @@ https://docs.cloud.f5.com/docs-v2/platform/concepts/distributed-apps-management#
 
 You can deploy vK8s in 3 architectures. Each has unique advantages and unique restrictions. 
 
-* RE Only
-* RE + CE
-* CE Only
+* RE (Regional Edge deployment - no infrastructure on-prem - more restrictions)
+* RE + CE (Regional Edge and Customer Edge deployment - mixed infrastructure)
+* CE (Customer Edge deployment - infrastructure required - less restrictions)
 
 ## RE Only vK8s
 This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination to their source. The vK8s namespace is replicated across all the PoPs making the pods globally redundant and available closest to the source. 
