@@ -1,7 +1,7 @@
 ## RE vK8s
 This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination from their source. The vK8s namespace can be replicated across all the PoPs, or selectively, making the pods globally redundant and available closest to the source. There is built in replication that can also be scaled per the app requirements. 
 
-<img width="957" alt="image" src="https://github.com/user-attachments/assets/f70bd039-10ce-4656-92c2-52b01f894f68">
+<img width="964" alt="image" src="https://github.com/user-attachments/assets/756b2dfd-071b-4d2d-a670-0cb95bdb331d">
 
 
 ### The Setup
