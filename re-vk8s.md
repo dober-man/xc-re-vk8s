@@ -147,22 +147,18 @@ Click on the "Pods" tab and review the Pods deployed as part of the workload.
 
 <img width="1120" alt="image" src="https://github.com/user-attachments/assets/4c5f4ffc-7f9a-488b-91c6-7950255386c7">
 
-Click on "Home" and then click on Multi-cloud App Connect
-
-<img width="485" alt="image" src="https://github.com/user-attachments/assets/d21f6abf-6b63-4b36-a13a-b5bb18f9c866">
-
 From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
 
-You will see the load balancer that was automatically created as part of the workload definitions. 
+You will see the load balancer that was automatically created as part of the workload definitions. You can also take a look under "Origin Pools" to see a similar object. 
 
 <img width="1122" alt="image" src="https://github.com/user-attachments/assets/0a142113-0862-4feb-b7e2-20df3f1286f2">
 
-Click the "Actions" button and notice that there is no option to manage or edit the load balancer directly. To modify any aspect of the load balancer it would need to be initiated from the workload. 
+Click the "Actions" button and notice that there is no option to manage or edit the load balancer or origin pool directly. To modify any aspect of either, it would need to be initiated from the workload definitions. 
 
 <img width="1109" alt="image" src="https://github.com/user-attachments/assets/e6a93474-893d-40c4-a040-fac247fe9dc1">
 
-#### Testing Access to the service
-Click the little down arrow next to the load balancer 
+#### Testing Access to the Service
+Click the little down arrow next to the Load Balancer.
 <img width="1102" alt="image" src="https://github.com/user-attachments/assets/445ebb78-3fb4-4422-a8c7-724162c1c7c5">
 
 Scroll down to around line 95 and find your IP address. 
