@@ -143,11 +143,7 @@ Click on the "Replica Sets" tab and review the Replica Sets deployed as part of 
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/fe850d59-0c42-4cf8-b5b2-b7cb6fe308ca">
 
-Click on the "Pods" tab and review the Pods deployed as part of the workload. 
-
-<img width="1120" alt="image" src="https://github.com/user-attachments/assets/4c5f4ffc-7f9a-488b-91c6-7950255386c7">
-
-Click the "3 dots" for one of the pods under the Actions column to review the actions you can take with a pod. 
+Click on the "Pods" tab and review the Pods deployed as part of the workload then click the "3 dots" for one of the pods under the Actions column to review the actions you can take. 
 
 <img width="1117" alt="image" src="https://github.com/user-attachments/assets/5ecdd4d2-a4de-4b23-811e-61ae13ce81e0">
 
