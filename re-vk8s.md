@@ -56,13 +56,13 @@ You will use this file with your local kubectl utility to authenticate and inter
 
 ### Workloads or Deployments?
 
-**Deployments** are a native Kubernetes construct. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. We will look at both options below. 
+**Deployments** are a native Kubernetes construct. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. We will look at both options below. 
 
-**Workloads** are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner.
+**Workloads** are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console to manage workloads. 
 
-Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure.
+Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure. Deployments just describe the pods and the vK8s configuration. 
 
-Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling.
+Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling. Another distinct advantage of workloads is that they can be used to automatically publish the service to the Internet using the "Advertise on Internet" feature described in more detail later. 
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 <br>
@@ -71,7 +71,7 @@ Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionalit
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container will natively start on a high port (8080) that does not require root to bind to. 
 
 #### Workloads
-Starting with the most commonly used method to deploy vK8s services, we will use a workload to deploy our example app. 
+Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to deploy our example nginx app. 
 The workload will define our entire application, including the deployment, pods, service, load balancer and origin pool. 
 
 Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name". 
