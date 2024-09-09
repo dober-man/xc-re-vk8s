@@ -10,4 +10,4 @@ You can deploy vK8s in 3 architectures. Each has unique advantages and unique re
 * RE + CE (Regional Edge and Customer Edge deployment - mixed infrastructure)
 * CE (Customer Edge deployment - infrastructure required - less restrictions)
 
-This walkthrough is designed to progress through the setup in that order. Start with the RE deployment and then build on your knowledge from there. 
+This walkthrough is designed to progress through the setup in that order. Start with the RE deployment (re-vk8s.md) and then build on your knowledge from there. 
