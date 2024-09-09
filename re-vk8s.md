@@ -219,7 +219,9 @@ From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers and con
 <img width="844" alt="image" src="https://github.com/user-attachments/assets/82ef492b-853b-482b-b7dd-9d1d544b383e">
 <img width="839" alt="image" src="https://github.com/user-attachments/assets/ba065d53-ff7e-44bc-b46e-31cce45cf17f">
 
-> **Note:** Everything past "Origins" is optional so take all the defaults but note the plethora of options and secruoity features available. This is the tradeoff between AoI and AiC. AoI is fast and easy and provides no security. AiC involves 2 extra steps to create the origin pool and load balancer but this could easily be automated and offers a lot more.  
+> **Note:** Everything past "Origins" is optional, so take all the defaults. However, note the plethora of options and security features available. This is the tradeoff between AoI and AiC. AoI is fast and easy but provides no security. AiC involves two extra steps to create the origin pool and load balancer, but this could easily be automated and offers a lot more.
+
+Test access by browsing to: http://nginx.example.com
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
 
