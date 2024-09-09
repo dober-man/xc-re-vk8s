@@ -147,6 +147,10 @@ Click on the "Pods" tab and review the Pods deployed as part of the workload.
 
 <img width="1120" alt="image" src="https://github.com/user-attachments/assets/4c5f4ffc-7f9a-488b-91c6-7950255386c7">
 
+Click the "3 dots" for one of the pods under the Actions column to review the actions you can take with a pod. 
+
+<img width="1117" alt="image" src="https://github.com/user-attachments/assets/5ecdd4d2-a4de-4b23-811e-61ae13ce81e0">
+
 From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
 
 You will see the load balancer that was automatically created as part of the workload definitions. You can also take a look under "Origin Pools" to see a similar object. 
