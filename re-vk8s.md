@@ -78,7 +78,7 @@ Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name".
 
 From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form.
 
-<img width="774" alt="image" src="https://github.com/user-attachments/assets/8484d74d-1386-4c12-a2f2-6c6d64bc5776">
+<img width="726" alt="image" src="https://github.com/user-attachments/assets/d195adc7-b345-488d-ad44-f5ef783b8fa3">
 
 Click the blue "Configure" under "Service". 
 
