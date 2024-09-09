@@ -205,11 +205,25 @@ Test access to the site again.
 
 <img width="745" alt="image" src="https://github.com/user-attachments/assets/f4f68964-c831-4af3-b1e7-b820d980cfe9">
 
-Why the error message? Unlike AoI, AiC deploys the workload but does not automatically create the Origin Pool and Load Balancer. While this is an extra step for the admin, it allows for a much more feature-rich front-end as all the normal capabilties are available for the load balancer. 
+Why the 404? Unlike AoI, AiC deploys the workload but does not automatically create the Origin Pool and Load Balancer. While this is an extra step for the admin, it allows for a much more feature-rich front-end as all the normal capabilties are available for the load balancer. 
 
-Click on "Home" and then click on Multi-cloud App Connect and from the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
+From the left menu go to Manage -> Load Balancers -> Origin Pools and configure the pool exactly as shown in the screenshot. 
 
-[tbd]
+<img width="846" alt="image" src="https://github.com/user-attachments/assets/3127a05e-1361-458b-a8f4-ba76da287174">
+<img width="840" alt="image" src="https://github.com/user-attachments/assets/1ea7b815-bfdc-4359-9502-b9c56d63aae6">
+
+Click Save and Exit.
+
+From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers and configure the load balancer exactly as shown below, then click Save and Exit. 
+
+<img width="844" alt="image" src="https://github.com/user-attachments/assets/82ef492b-853b-482b-b7dd-9d1d544b383e">
+<img width="839" alt="image" src="https://github.com/user-attachments/assets/ba065d53-ff7e-44bc-b46e-31cce45cf17f">
+
+> **Note:** Everything past "Origins" is optional so take all the defaults but note the plethora of options and secruoity features available. This is the tradeoff between AoI and AiC. AoI is fast and easy and provides no security. AiC involves 2 extra steps to create the origin pool and load balancer but this could easily be automated and offers a lot more.  
+
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
+
+
 
 
 
