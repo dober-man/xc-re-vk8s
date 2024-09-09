@@ -131,11 +131,19 @@ Within a few moments you should see your workload status
 
 <img width="1121" alt="image" src="https://github.com/user-attachments/assets/d1d1c004-ec91-4ae1-b775-3a022aaa7831">
 
-Click on the "Deployments" tab and review the deployment deployed as part of the workload. 
+Click on the "Deployments" tab and review the deployment created as part of the workload. Click the "3 dots" under the Actions column to review the actions you can take.  
 
-<img width="897" alt="image" src="https://github.com/user-attachments/assets/75d8f8e0-1383-4f8a-9e09-5aa8feb1529f">
+<img width="1110" alt="image" src="https://github.com/user-attachments/assets/ee122d06-4db3-4164-8723-63d8ad8c7cca">
 
-Click on the "Services" tab and review the services deployed as part of the workload. 
+Click "Edit" and review the YAML. Change the number of replicas from 1 to 2 and click "Save".
+
+<img width="926" alt="image" src="https://github.com/user-attachments/assets/f2530b38-c8bd-42cc-8b39-71c1757e6c12">
+
+Over the next 30 seconds or so you will see the number of pods double. There are now 10 pods across 5 sites. 
+
+<img width="552" alt="image" src="https://github.com/user-attachments/assets/fd43db43-ed9e-481e-8494-70cafb7fa4c1">
+
+Click on the "Services" tab and review the services deployed as part of the workload. Notice the default kubernetes service which allows 443->6443 access to the kube-api. 
 
 <img width="954" alt="image" src="https://github.com/user-attachments/assets/9baae205-b236-4560-b6d8-2138fedd002d">
 
