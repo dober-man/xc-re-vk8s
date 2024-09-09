@@ -34,7 +34,7 @@ Distributed Apps -> Applications -> Virtual K8s -> "Add Virtual K8s" (You can ha
 * Default Workload Flavor: "Add Item"
   
 These values are not arbitrary and must be defined appropriately given this deployment model uses our Regional Edges which have finite resources. 
-Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vK8s implementation (covered further down in this article) 
+Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vK8s implementation. (covered further down in this article) 
 
 <img width="781" alt="image" src="https://github.com/user-attachments/assets/7a23b89a-8c50-42cb-b274-bd5f8173cdbb">
 
