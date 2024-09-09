@@ -201,6 +201,8 @@ Test access to the site again.
 
 <img width="745" alt="image" src="https://github.com/user-attachments/assets/f4f68964-c831-4af3-b1e7-b820d980cfe9">
 
+Why the error message? Unlike AoI, AiC deploys the workload but does not automatically create the Origin Pool and Load Balancer. While this is an extra step for the admin, it allows for a much more feature-rich front-end as all the normal capabilties are available for the load balancer. 
+
 Click on "Home" and then click on Multi-cloud App Connect and from the left menu go to Manage -> Load Balancers -> HTTP Load Balancers
 
 [tbd]
