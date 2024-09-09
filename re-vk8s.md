@@ -225,25 +225,11 @@ Test access by browsing to: http://nginx.example.com
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**This concludes the Workspaces learning section. Next we will look at deploying an app "the old fashioned way" via deployments.**
 
 #### Deployments
 
-The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container will natively start on a high port (8080) that does not require root to bind to. 
+The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions when deploying on XC Regional Edges. The sample container will natively start on a high port (8080) that does not require root to bind to. 
 
 **Imperative**
 ```
