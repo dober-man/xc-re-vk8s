@@ -56,6 +56,6 @@ Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the 
 
 You will use this file with your local kubectl utility to authenticate and interact with the vK8s namespace. Feel free to open and inspect the file content...but **keep it secure.**
 
-**This concludes the basic setups for re-vk8s**
+**This concludes the basic setup for re-vk8s. Continue to 2-workloads.**
 
 
