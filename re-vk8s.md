@@ -1,5 +1,5 @@
 ## RE vK8s
-This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination from their source. The vK8s namespace can be replicated across all the PoPs, or selectively, making the pods globally redundant and available closest to the source. There is built in replication that can also be scaled per the app requirements. 
+This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination from their source. The vK8s namespace can be replicated across all the PoPs, or selectively, making the pods globally redundant and available closest to the source. The XC vK8s service has built in replication that can additionally be scaled per the app requirements. 
 
 <img width="964" alt="image" src="https://github.com/user-attachments/assets/756b2dfd-071b-4d2d-a670-0cb95bdb331d">
 
@@ -8,21 +8,21 @@ This simplified diagram shows how globally distributed users access resources cl
 "RE vK8's" is the simplest way to get started although it comes with some restrictions as shown in the diagram. The upside is, it is easy to get configured, 100% on our infrastucture (nothing to manage) and it's globally distributed with a ton of front-door security features. 
 
 #### Virtual Site
-A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define our Regional Edges as a grouping but, you may want to limit which Regions participate in vK8s. 
+A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define all of our Regional Edges as a grouping but, you may want to limit which Regions participate in vK8s. 
 
-Ultimately, the "Virtual Site" defines where our virtual k8s pods will be running. In this lab we will be defining USA Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
+Ultimately, the "Virtual Site" defines where our virtual k8s pods will be running. In this lab we will be defining 5 USA Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
 
 
 Here is a look at the default Virtual Sites that could be used but we will be taking a more granular approach. 
 <img width="922" alt="image" src="https://github.com/user-attachments/assets/7bab32c8-8359-44d7-b401-6c473038937d">
 
-Define a Custom Virtual Site for just USA based Regional Edges: 
+#### Define a Custom Virtual Site for just USA based Regional Edges 
 
 Distributed Apps -> Manage -> Virtual Sites -> "Add Virtual Site"
 * Name: my-vsite-usa
 * Site Type: RE
 * Site Selector Expression: "Add Label" -> ves.io/country -> in -> ves.io.usa <br>
-Save & Exit
+**Save & Exit**
 
 <img width="721" alt="image" src="https://github.com/user-attachments/assets/d1c7313a-6369-4768-8ff3-f9eef9d430a2">
 
@@ -34,7 +34,7 @@ Distributed Apps -> Applications -> Virtual K8s -> "Add Virtual K8s" (You can ha
 * Default Workload Flavor: "Add Item"
   
 These values are not arbitrary and must be defined appropriately given this deployment model uses our Regional Edges which have finite resources. 
-Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vK8s implementation. (covered further down in this article) 
+Configure the RE workload flavor as shown in the screenshot. You have more options when using the Customer Edge exclusively for your vK8s implementation. 
 
 <img width="781" alt="image" src="https://github.com/user-attachments/assets/7a23b89a-8c50-42cb-b274-bd5f8173cdbb">
 
@@ -52,23 +52,23 @@ Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the 
 
 <img width="1107" alt="image" src="https://github.com/user-attachments/assets/fee82676-cb7d-4037-802d-39d95271f503">
 
-You will use this file with your local kubectl utility to authenticate and interact with the vK8s namespace. Feel free to open and inspect the file content...but keep it secure. 
+You will use this file with your local kubectl utility to authenticate and interact with the vK8s namespace. Feel free to open and inspect the file content...but **keep it secure.**
 
 ### Workloads or Deployments?
 
 **Deployments** are a native Kubernetes construct. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. We will look at both options below. 
 
-**Workloads** are not a native Kubernetes construct and are an abstract definition of groups of objects to be deployed like Deployments, StatefulSets, DaemonSets, Jobs, etc. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console to manage workloads. 
+**Workloads** are not a native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console to deploy and manage workloads. 
 
-Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure. Deployments just describe the pods and the vK8s configuration. 
+Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure. Deployments describe the pods and the vK8s configuration. 
 
-Use Workloads (StatefulSet, DaemonSet, Jobs) when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling. Another distinct advantage of workloads is that they can be used to automatically publish the service to the Internet using the "Advertise on Internet" feature described in more detail later. 
+Use Workloads when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling. Another distinct advantage of workloads is that they can be used to automatically publish the service to the Internet using the "Advertise on Internet" feature described in more detail later. 
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 <br>
 <br>
 
-> **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container will natively start on a high port (8080) that does not require root to bind to. 
+> **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
 #### Workloads
 Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to deploy our example nginx app. 
@@ -99,15 +99,15 @@ Use the USA based regional edge virtual site:
 
 **Advertise on Internet (AoI)** 
 
-AoI does exactly what it sounds like. AoI preconfigures a service to expose the pods in vK8s, an origin pool referencing the service and finally a public, globally-redundant load balancer. 
+AoI does exactly what it sounds like. AoI preconfigures a service to expose the pods in vK8s, an origin pool referencing the service, and finally a public, globally-redundant load balancer. 
 
-AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer or change or add anything outside of what is offered in the AoI config definition form. This is similar to the iApp feature on BIG-IP. When we choose AoI, we limit the amount of steps we need to take to deploy an app but we also are limited in terms of adding any additional functionality to the load balancer in support of the app.
+AoI objects are created and managed by the workload. For example, you can not directly modify the load balancer or change or add anything outside of what is offered in the AoI config definition form. This is similar to the iApp feature on BIG-IP. When we choose AoI, we limit the amount of steps we need to take to deploy and publish an app but we also are limited in terms of adding any additional functionality to the load balancer in support of the app.
 
 **Advertise in Cluster (AiC)**
 
-This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer and deploy it to the Virtual Site appropriate to provide access to the service. For example, a load balancer running on a CE, publishing services to other clusters or to internal clients. 
+This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer, add security policy and deploy it to the Virtual Site appropriate to provide access to the service. For example, a load balancer running on a CE, publishing services to other clusters or to internal clients. 
 
-The benefit of this model is the entire suite of XC security capabilities can be configured on the load balancer that weren't exposed in the AoI model. You can add WAAP, API Discovery, Bot mitigation and a whole bunch of other XC security services to protect the app. 
+The benefit of this model is the entire suite of XC security services can be configured on the load balancer that weren't exposed in the AoI model. You can add WAAP, API Discovery, Bot mitigation and a whole bunch of other XC security services to protect the app. You can modify the load balancer and orgin pool at whim. 
 
 Either method (AoI or AiC) could be used to publish the app or service but which method you use will determine which post-deployment features are available for the service. We will explore the configuration and outcome of each method now. 
 
@@ -161,15 +161,17 @@ You will see the load balancer that was automatically created as part of the wor
 
 <img width="1122" alt="image" src="https://github.com/user-attachments/assets/0a142113-0862-4feb-b7e2-20df3f1286f2">
 
-Click the "Actions" button and notice that there is no option to manage or edit the load balancer or origin pool directly. To modify any aspect of either, it would need to be initiated from the workload definitions. 
+Click the "3 dots" under the Actions column and notice that there is no option to manage or edit the load balancer or origin pool directly. To modify any aspect of either, it would need to be initiated from the workload definitions. 
 
 <img width="1109" alt="image" src="https://github.com/user-attachments/assets/e6a93474-893d-40c4-a040-fac247fe9dc1">
 
 #### Testing Access to the Service
 Click the little down arrow next to the Load Balancer.
+
 <img width="1102" alt="image" src="https://github.com/user-attachments/assets/445ebb78-3fb4-4422-a8c7-724162c1c7c5">
 
 Scroll down to around line 95 and find your IP address. 
+
 <img width="346" alt="image" src="https://github.com/user-attachments/assets/ebeab53d-ee59-4e0e-bf9d-22b6bbdfb937">
 
 Make a host file entry on your local machine to point nginx.example.com to the IP address in your config.
@@ -197,6 +199,7 @@ Advertise Options: Advertise in Cluster - click the blue "Configure"
 <img width="501" alt="image" src="https://github.com/user-attachments/assets/0e9fe677-e746-4b34-8ae1-79e94caa5cf3">
 
 Advertise in cluster config
+
 <img width="839" alt="image" src="https://github.com/user-attachments/assets/03495427-7cca-418f-8f2e-5218b287c768">
 
 Apply, Apply, Save & Exit. 
@@ -219,7 +222,7 @@ From the left menu go to Manage -> Load Balancers -> HTTP Load Balancers and con
 <img width="844" alt="image" src="https://github.com/user-attachments/assets/82ef492b-853b-482b-b7dd-9d1d544b383e">
 <img width="839" alt="image" src="https://github.com/user-attachments/assets/ba065d53-ff7e-44bc-b46e-31cce45cf17f">
 
-> **Note:** Everything past "Origins" is optional, so take all the defaults. However, note the plethora of options and security features available. This is the tradeoff between AoI and AiC. AoI is fast and easy but provides no security. AiC involves two extra steps to create the origin pool and load balancer, but this could easily be automated and offers a lot more.
+> **Note:** Everything past "Origins" is optional, so take all the defaults. However, note the plethora of options and security features available. This is the tradeoff between AoI and AiC. AoI is fast and easy but provides no security. AiC involves two extra steps to create the origin pool and load balancer, but this could easily be automated and offers a lot more in terms of security and function.
 
 Test access by browsing to: http://nginx.example.com
 
