@@ -232,6 +232,13 @@ Test access by browsing to: http://nginx.example.com
 
 #### Deployments
 
+When to Use a Deployment?
+
+Stateless applications where:
+* The identity of individual pods doesn't matter.
+* Pods are ephemeral and can be replaced at any time without issues (e.g., web servers serving static content, microservices without data persistence).
+* There's no need for persistent storage (or storage can be shared across pods using something like a shared volume or network file system).
+
 The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions when deploying on XC Regional Edges. The sample container will natively start on a high port (8080) that does not require root to bind to. 
 
 **Imperative Deployment and Expose Service**
@@ -288,7 +295,16 @@ spec:
 
 ```
 
+### Quotas
 
+why dont declarative pods come up? resource limits per vk8s - delete imperative 
+cover quotas. CPU Limits refer to the maximum amount of CPU resources that a container or workload can use.
+CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
+
+### Publish Declarative service
+modify existing k8s svc pool - test. 
+
+#### Stateful Sets
 
 
 
