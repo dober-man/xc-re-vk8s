@@ -234,7 +234,7 @@ Test access by browsing to: http://nginx.example.com
 
 The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions when deploying on XC Regional Edges. The sample container will natively start on a high port (8080) that does not require root to bind to. 
 
-**Imperative**
+**Imperative Deployment and Expose Service**
 Using the downloaded kubeconfig file, imperatively create a deployment named nginx-imper and expose.
 
 ```
@@ -242,7 +242,7 @@ kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.
 ```
 
 
-**Declarative**
+**Declarative Deployment**
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -270,7 +270,10 @@ spec:
           requests:
             cpu: "0.5"
             memory: "100Mi"
----
+```
+
+**Declarative Service**
+```
 apiVersion: v1
 kind: Service
 metadata:
