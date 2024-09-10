@@ -1,4 +1,3 @@
-## Deploying Apps
 ### Workloads, Deployments, Stateful Sets or Daemon Sets?
 All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
