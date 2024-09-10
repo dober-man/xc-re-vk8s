@@ -181,6 +181,17 @@ Make a host file entry on your local machine to point nginx.example.com to the I
 
 <img width="771" alt="image" src="https://github.com/user-attachments/assets/b66a9b93-2e54-4772-a6a3-fd6fc8ece100">
 
+#### Reviewing Service Mesh
+When deploying with a workload a service mesh is automatically created. 
+On your local machine run a curl loop to generate some traffic. 
+```
+while true; do
+  curl http://nginx.example.com/
+  sleep 0.5
+```
+Wait a few moments
+
+
 **AiC Method**
 
 Testing the AiC method simply involves making a change to the workload and manually building an origin pool and load balancer. The real benefit of this method will be clear momentarily. 
