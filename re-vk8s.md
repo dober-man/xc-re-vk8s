@@ -267,14 +267,27 @@ Stateless applications where:
 * Pods are ephemeral and can be replaced at any time without issues (e.g., web servers serving static content, microservices without data persistence).
 * There's no need for persistent storage (or storage can be shared across pods using something like a shared volume or network file system).
 
+With Deployments you will need to do more manual stitching of the various components.  
+
 The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions when deploying on XC Regional Edges. The sample container will natively start on a high port (8080) that does not require root to bind to. 
 
 **Imperative Deployment and Expose Service**
-Using the downloaded kubeconfig file, imperatively create a deployment named nginx-imper and expose.
+Using the downloaded kubeconfig file from earlier, imperatively create a deployment named nginx-imper and expose.
+
+In this example my kubeconfig file was named **"vK8s.kubeconfig"**. This command creates a deployment called "nginx-imper" using the example nginx app container on port 8080. It then exposes the nginx service as ClusterIP on port 2000. 
 
 ```
 kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
+
+
+
+
+
+
+
+
+
 
 
 **Declarative Deployment**
