@@ -182,15 +182,24 @@ Make a host file entry on your local machine to point nginx.example.com to the I
 <img width="771" alt="image" src="https://github.com/user-attachments/assets/b66a9b93-2e54-4772-a6a3-fd6fc8ece100">
 
 #### Reviewing Service Mesh
-When deploying with a workload a service mesh is automatically created. 
-On your local machine run a curl loop to generate some traffic. 
+When deploying apps in vK8s, a service mesh is automatically created. Now is a good time to review that functionality. 
+
+On the local host run a curl loop to generate some traffic. 
 ```
 while true; do
   curl http://nginx.example.com/
   sleep 0.5
 ```
-Wait a few moments
+Wait a few moments and then on the left Nav menu under "Mesh" click on "Service Mesh" and then click "default".
+<img width="487" alt="image" src="https://github.com/user-attachments/assets/b6a8474a-944c-4a44-839d-04aa16f0418a">
 
+Click on the icon for the service and click "Health". 
+
+<img width="1129" alt="image" src="https://github.com/user-attachments/assets/3c508686-8d2f-4f95-bcd3-e881a9a9b3db">
+
+Review the stats and click close. Click the "Requests" tab at the top. 
+
+<img width="1135" alt="image" src="https://github.com/user-attachments/assets/e005c4c5-a6b8-47ee-9094-96cedbcce930">
 
 **AiC Method**
 
