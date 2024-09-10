@@ -58,6 +58,7 @@ You will use this file with your local kubectl utility to authenticate and inter
 
 ## Deploying Apps
 ### Workloads, Deployments, Stateful Sets or Daemon Sets?
+All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
 If your app is stateless, doesn't require unique identities or dedicated storage for each instance, and doesn't need to run on every node, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
 
@@ -73,8 +74,8 @@ If your app is stateless, doesn't require unique identities or dedicated storage
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
 #### Workloads
-Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to deploy our example nginx app. 
-The workload will define our entire application, including the deployment, pods, service, load balancer and origin pool. 
+Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to 
+define and create our entire sample nginx application which includes the deployment, pods, service, replication sets,  and service mesh with optional volumes, load balancer and origin pool.
 
 Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name". 
 
