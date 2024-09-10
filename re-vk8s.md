@@ -235,20 +235,16 @@ Test access by browsing to: http://nginx.example.com
 The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions when deploying on XC Regional Edges. The sample container will natively start on a high port (8080) that does not require root to bind to. 
 
 **Imperative**
+Using the downloaded kubeconfig file, imperatively create a deployment named nginx-imper and expose.
+
 ```
-kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
-**Nodeport** (Need to test)
-```
-kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=NodePort --port=2000 --target-port=8080 --node-port=32000
-```
-**ClusterIP** (Need to test)
-```
-kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
-```
+
 
 **Declarative**
 ```
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-declar
@@ -256,24 +252,37 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-declar
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-declar
     spec:
       containers:
-        - name: nginx
-          image: ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
-          ports:
-            - containerPort: 1024
-          resources:
-            limits:
-              cpu: "1"
-              memory: "200Mi"
-            requests:
-              cpu: "0.5"
-              memory: "100Mi"
+      - name: nginx-declar
+        image: ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "1"
+            memory: "200Mi"
+          requests:
+            cpu: "0.5"
+            memory: "100Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-declar
+spec:
+  type: ClusterIP
+  ports:
+  - port: 2000
+    targetPort: 8080
+  selector:
+    app: nginx-declar
+
 ```
 
 
