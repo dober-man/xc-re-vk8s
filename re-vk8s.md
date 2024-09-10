@@ -197,9 +197,14 @@ Click on the icon for the service and click "Health".
 
 <img width="1129" alt="image" src="https://github.com/user-attachments/assets/3c508686-8d2f-4f95-bcd3-e881a9a9b3db">
 
-Review the stats and click close. Click the "Requests" tab at the top. 
+Review the stats and click close. Click the "Requests" tab at the top and review the requests. 
 
 <img width="1135" alt="image" src="https://github.com/user-attachments/assets/e005c4c5-a6b8-47ee-9094-96cedbcce930">
+
+Click back on the "Service Graph" tab but this time **double-click** on the icon for the service. 
+
+<img width="790" alt="image" src="https://github.com/user-attachments/assets/d225690c-c86e-4997-8441-bf30c7331e2a">
+
 
 **AiC Method**
 
