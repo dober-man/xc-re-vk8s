@@ -54,15 +54,17 @@ Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the 
 
 You will use this file with your local kubectl utility to authenticate and interact with the vK8s namespace. Feel free to open and inspect the file content...but **keep it secure.**
 
-### Workloads or Deployments?
+## Deploying Apps
+### Workloads, Deployments, Stateful Sets or Daemon Sets?
 
-**Deployments** are a native Kubernetes construct. You could simply paste in your deployment definition YAML or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. We will look at both options below. 
+If your app is stateless, doesn't require unique identities or dedicated storage for each instance, and doesn't need to run on every node, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
 
-**Workloads** are not a native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or one umbrella, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console to deploy and manage workloads. 
+ **Workloads** are a non-native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or an umbrella of vK8s objects, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console UI to deploy and manage workloads. More info [here](https://docs.cloud.f5.com/docs-v2/api/views-workload) and [here](https://docs.cloud.f5.com/docs-v2/platform/reference/api-ref/ves-io-schema-views-workload-api-replace).
+
+ 
+**Deployments** are a native Kubernetes construct. You could simply paste your deployment definition YAML into XC Console or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. We will look at both options below. 
 
 Use Deployments when managing stateless applications that need to be easily updated, scaled, and self-healed, with the flexibility to roll back updates in case of failure. Deployments describe the pods and the vK8s configuration. 
-
-Use Workloads when you need specific functionality beyond just stateless applications. These are for cases requiring persistence, specialized task execution, or per-node pod scheduling. Another distinct advantage of workloads is that they can be used to automatically publish the service to the Internet using the "Advertise on Internet" feature described in more detail later. 
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 <br>
@@ -305,6 +307,11 @@ CPU Requests are the guaranteed amount of CPU that the workload will be allocate
 modify existing k8s svc pool - test. 
 
 #### Stateful Sets
+Use this for applications that have state and need persistent storage or a stable identity (e.g., databases, clustered apps).
+
+
+
+pod names dont change
 
 
 
