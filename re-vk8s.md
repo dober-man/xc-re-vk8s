@@ -1,5 +1,7 @@
 ## RE vK8s
-This simplified diagram shows how globally distributed users access resources closest to their region. In reality there are dozens of XC PoPs all across the planet and due to how anycast works, users will automatically route to the closest destination from their source. The vK8s namespace can be replicated across all the PoPs, or selectively, making the pods globally redundant and available closest to the source. The XC vK8s service has built in replication that can additionally be scaled per the app requirements. 
+This simplified diagram shows how globally distributed users access resources nearest to their region. In practice, there are dozens of F5 Distributed Cloud Points of Presence (PoPs) across the globe. Thanks to Anycast, users are automatically routed to the closest PoP based on their location, ensuring lower latency and improved performance. 
+
+The virtual Kubernetes (vK8s) namespace can be replicated across all PoPs or deployed selectively to specific ones, offering redundancy and ensuring services are available close to the users. Furthermore, the XC vK8s service includes built-in replication and scaling mechanisms that adjust to application needs, ensuring efficiency and availability.
 
 <img width="964" alt="image" src="https://github.com/user-attachments/assets/756b2dfd-071b-4d2d-a670-0cb95bdb331d">
 
