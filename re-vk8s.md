@@ -175,7 +175,7 @@ Click the little down arrow next to the Load Balancer.
 
 Scroll down to around line 95 and find your IP address. 
 
-<img width="346" alt="image" src="https://github.com/user-attachments/assets/ebeab53d-ee59-4e0e-bf9d-22b6bbdfb937">
+<img width="657" alt="image" src="https://github.com/user-attachments/assets/6217ee74-02e8-4ec1-8808-935b9ba85880">
 
 Make a host file entry on your local machine to point nginx.example.com to the IP address in your config.
 
