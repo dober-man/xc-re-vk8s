@@ -265,10 +265,10 @@ spec:
         - containerPort: 8080
         resources:
           limits:
-            cpu: "1"
-            memory: "200Mi"
+            cpu: "500m"
+            memory: "150Mi"
           requests:
-            cpu: "0.5"
+            cpu: "250m"
             memory: "100Mi"
 ```
 
