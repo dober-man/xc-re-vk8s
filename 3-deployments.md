@@ -75,3 +75,6 @@ CPU Requests are the guaranteed amount of CPU that the workload will be allocate
 ### Publish Declarative service
 modify existing k8s svc pool - test. 
 
+**This concludes the Deployments learning section. Continue to 4-stateful-sets.**
+
+
