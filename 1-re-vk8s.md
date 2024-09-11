@@ -1,4 +1,4 @@
-## RE vK8s
+# RE vK8s
 This simplified diagram shows how globally distributed users access resources nearest to their region. In practice, there are dozens of F5 Distributed Cloud Points of Presence (PoPs) across the globe. Thanks to Anycast, users are automatically routed to the closest PoP based on their location, ensuring lower latency and improved performance. 
 
 The virtual Kubernetes (vK8s) namespace can be replicated across all PoPs or deployed selectively to specific ones, offering redundancy and ensuring services are available close to the users. Furthermore, the XC vK8s service includes built-in replication and scaling mechanisms that adjust to application needs, ensuring efficiency and availability.
@@ -6,10 +6,10 @@ The virtual Kubernetes (vK8s) namespace can be replicated across all PoPs or dep
 <img width="964" alt="image" src="https://github.com/user-attachments/assets/756b2dfd-071b-4d2d-a670-0cb95bdb331d">
 
 
-### The Setup
+## The Setup
 "RE vK8's" is the simplest way to get started although it comes with some restrictions as shown in the diagram. The upside is, it is easy to get configured, 100% on our infrastucture (nothing to manage) and it's globally distributed with a ton of front-door security features. 
 
-#### Virtual Site
+### Virtual Site
 A virtual site provides a mechanism to perform operations on a group of sites, reducing the need to repeat the same set of operations for each site. Both cloud and physical sites can be grouped together to create a virtual site. There are some prebuilt virtual sites in XC Console that define all of our Regional Edges as a grouping but, you may want to limit which Regions participate in vK8s. 
 
 Ultimately, the "Virtual Site" defines where our virtual k8s pods will be running. In this lab we will be defining 5 USA Regional Edges but others could easily be added just by modifying the label in the Virtual Site definition. 
@@ -29,7 +29,7 @@ Distributed Apps -> Manage -> Virtual Sites -> "Add Virtual Site"
 <img width="721" alt="image" src="https://github.com/user-attachments/assets/d1c7313a-6369-4768-8ff3-f9eef9d430a2">
 
 
-#### Virtual K8s
+### Virtual K8s
 Distributed Apps -> Applications -> Virtual K8s -> "Add Virtual K8s" (You can have one instance of vK8s per XC tenant namespace)
 * Name: vK8s-1
 * Virtual Sites: default/my-vsite-usa
