@@ -1,4 +1,4 @@
-### Workloads, Deployments, Stateful Sets or Daemon Sets?
+# Workloads, Deployments, Stateful Sets or Daemon Sets?
 All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
 If your app is stateless, doesn't require unique identities or dedicated storage for each instance, and doesn't need to run on every node, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
@@ -14,7 +14,7 @@ If your app is stateless, doesn't require unique identities or dedicated storage
 
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
-#### Workloads
+## Workloads
 Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to 
 define and create our entire sample nginx application which includes the deployment, pods, service, replication sets,  and service mesh with optional volumes, load balancer and origin pool.
 
@@ -39,7 +39,7 @@ Use the USA based regional edge virtual site:
 
 <img width="336" alt="image" src="https://github.com/user-attachments/assets/29061427-6e81-4401-9502-6c2ae33ca6c0">
 
-### Advertise Options - Advertise on Internet (AoI) vs Advertise in Cluster (AiC)
+#### Advertise Options - Advertise on Internet (AoI) vs Advertise in Cluster (AiC)
 
 **Advertise on Internet (AoI)** 
 
@@ -109,7 +109,7 @@ Click the "3 dots" under the Actions column and notice that there is no option t
 
 <img width="1109" alt="image" src="https://github.com/user-attachments/assets/e6a93474-893d-40c4-a040-fac247fe9dc1">
 
-#### Testing Access to the Service
+### Testing Access to the Service
 Click the little down arrow next to the Load Balancer.
 
 <img width="1102" alt="image" src="https://github.com/user-attachments/assets/445ebb78-3fb4-4422-a8c7-724162c1c7c5">
@@ -122,7 +122,7 @@ Make a host file entry on your local machine to point nginx.example.com to the I
 
 <img width="771" alt="image" src="https://github.com/user-attachments/assets/b66a9b93-2e54-4772-a6a3-fd6fc8ece100">
 
-#### Reviewing Service Mesh
+### Reviewing Service Mesh
 When deploying apps in vK8s, a service mesh is automatically created. Now is a good time to review that functionality. 
 
 On the local host run a curl loop to generate some traffic. 
@@ -197,4 +197,4 @@ Test access by browsing to: http://nginx.example.com
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
 
-**This concludes the Workspaces learning section. Next we will look at deploying an app "the old fashioned way" via deployments.**
+**This concludes the Workloads learning section.**
