@@ -197,4 +197,4 @@ Test access by browsing to: http://nginx.example.com
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
 
-**This concludes the Workloads learning section.**
+**This concludes the Workloads learning section. Continue to 3-deployments.**
