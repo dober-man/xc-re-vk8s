@@ -1,7 +1,7 @@
 # Workloads, Deployments, Stateful Sets or Daemon Sets?
 All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
-If your app is stateless, doesn't require unique identities or dedicated storage for each instance, and doesn't need to run on every node, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
+If your app is stateless, doesn't require unique identities or dedicated storage for each instance, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
 
  **Workloads** are a non-native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or an umbrella of vK8s objects, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console UI to deploy and manage workloads. More info [here](https://docs.cloud.f5.com/docs-v2/api/views-workload) and [here](https://docs.cloud.f5.com/docs-v2/platform/reference/api-ref/ves-io-schema-views-workload-api-replace).
 
@@ -15,14 +15,14 @@ If your app is stateless, doesn't require unique identities or dedicated storage
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
 ## Workloads
-Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to 
+Starting with the most commonly used method to deploy vK8s services, we will use a workload to 
 define and create our entire sample nginx application which includes the deployment, pods, service, replication sets,  and service mesh with optional volumes, load balancer and origin pool.
 
 Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name". 
 
-From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form.
+From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form. Choose **Service**. 
 
-<img width="791" alt="image" src="https://github.com/user-attachments/assets/2be28688-b03a-49c6-99fe-94acc3a6be80">
+<img width="957" alt="image" src="https://github.com/user-attachments/assets/57886aee-84df-40cd-979b-e322b0060650">
 
 Click the blue "Configure" under "Service". 
 
