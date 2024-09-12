@@ -20,14 +20,18 @@ Run this command from your local client where you have kubectl installed. I inst
 ```
 kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
-Note - you may see a bunch of **"96483 memcache.go:287 couldn't get resource list for X"** error messages. These can safely be ignored.   
+> **Note:** - you may see a bunch of **"96483 memcache.go:287 couldn't get resource list for X"** status messages. This happens if features are restricted or disabled and can safely be ignored. 
+
+Click on the "Deployments" tab and click "Refresh". You should see your new deployment running alongside of the deployment already created from the workload earlier. 
+
+<img width="1116" alt="image" src="https://github.com/user-attachments/assets/01df9b7e-9eb5-41f4-8611-b2e8c865b0ea">
 
 
 
 ## Declarative Deployment
 For declarative, you could either paste the YAML into the XC Console form under "Deployments" or save the YAML in local files on your client and reference with kubectl. We will show both examples below. 
 
-Navigate to the "Deployments" tab and click "Add Deployment". You should still see a deployment running from the previous workloads exercise. 
+Navigate to the "Deployments" tab and click "Add Deployment". You should still see a deployment running from the previous imperative exercise. 
 
 <img width="1123" alt="image" src="https://github.com/user-attachments/assets/00bf5427-ac7c-48f3-a6de-b49732eb95f7">
 
