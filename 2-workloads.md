@@ -1,16 +1,16 @@
 # Workloads, Deployments, Stateful Sets or Daemon Sets?
 All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
-If your app is stateless, doesn't require unique identities or dedicated storage for each instance, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
-
  **Workloads** are a non-native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or an umbrella of vK8s objects, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console UI to deploy and manage workloads. More info [here](https://docs.cloud.f5.com/docs-v2/api/views-workload) and [here](https://docs.cloud.f5.com/docs-v2/platform/reference/api-ref/ves-io-schema-views-workload-api-replace).
 
  
-**Deployments** are a native Kubernetes construct and best used when managing stateless applications. You could simply paste your deployment definition YAML into XC Console or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. These will be covered in detail in the next section. 
+**Deployments** are a native Kubernetes construct and best used when managing stateless applications. You could simply paste your deployment definition YAML into XC Console or leverage kubectl to imperatively create the deployment. You do not deploy workloads with kubectl. These will be covered in detail in the section 3. 
 
 <img width="1124" alt="image" src="https://github.com/user-attachments/assets/ac1ea09b-1811-487f-a8ec-af229ff5ba66">
 <br>
 <br>
+
+**StatefulSets and DaemonSets are covered in section 4 & 5 of this guide.**
 
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
