@@ -71,9 +71,36 @@ spec:
 
 <img width="524" alt="image" src="https://github.com/user-attachments/assets/466c4e47-2206-4429-9323-f06010959221">
 
-Hit "Refresh" and within a few seconds you should see all your pods successfully deployed. 
+Hit "Refresh" but this time you will see that your pods are not coming online. What gives?
 
-<img width="1128" alt="image" src="https://github.com/user-attachments/assets/22f24b10-c9da-4e0e-8562-745e40bc1e11">
+<img width="1124" alt="image" src="https://github.com/user-attachments/assets/c08c3a56-4fb8-41d1-8708-536ea8601beb">
+
+**Now is a good time to quickly review troubleshooting and quotas**
+
+### Troubleshooting deployment status
+Click the Action buttons and "Show conditions" for the deployment you want to investigate. 
+<img width="1117" alt="image" src="https://github.com/user-attachments/assets/9d7c4e1f-31d3-464a-8625-a1c99742b3d4">
+
+We can see from the logs that we have exceeded quota and are out of resources. 
+
+<img width="569" alt="image" src="https://github.com/user-attachments/assets/f1e9aa5f-bfda-413a-85f1-7640632f96d0">
+
+### Quotas
+
+Navigate to 
+
+CPU Limits refer to the maximum amount of CPU resources that a container or workload can use.
+CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
+
+
+Object Limits
+<img width="1114" alt="image" src="https://github.com/user-attachments/assets/d6d577e9-0dd1-4f53-914b-3fd8c2246050">
+
+
+
+
+
+
 
 Now create a service to provide access to the pods. Click the "Services" tab and click "Add Service". 
 
@@ -100,11 +127,7 @@ spec:
 
 
 
-### Quotas
 
-why dont declarative pods come up? resource limits per vk8s - delete imperative 
-cover quotas. CPU Limits refer to the maximum amount of CPU resources that a container or workload can use.
-CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
 
 
 #### Declarative with kubectl
