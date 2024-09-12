@@ -26,7 +26,7 @@ Navigate to the "Deployments" tab and click "Add Deployment". You should still s
 
 <img width="1123" alt="image" src="https://github.com/user-attachments/assets/00bf5427-ac7c-48f3-a6de-b49732eb95f7">
 
-Paste in the metadata on **line 2** underneath "Kind: Deployment"
+Paste in the metadata on **line 2** underneath "Kind: Deployment" and click "Save".
 
 ```
 metadata:
@@ -57,11 +57,18 @@ spec:
 
 <img width="524" alt="image" src="https://github.com/user-attachments/assets/466c4e47-2206-4429-9323-f06010959221">
 
+Hit "Refresh" and within a few seconds you should see all your pods successfully deployed. 
+
+<img width="1128" alt="image" src="https://github.com/user-attachments/assets/22f24b10-c9da-4e0e-8562-745e40bc1e11">
+
+Now create a service to provide access to the pods. Click the "Services" tab and click "Add Service". 
+
+<img width="1003" alt="image" src="https://github.com/user-attachments/assets/34509805-c5e4-4ead-8ec3-9c7788e3f36e">
+
+Paste in the metadata on **line 2** underneath "Kind: Service" and click "Save".
 
 **Declarative Service**
 ```
-apiVersion: v1
-kind: Service
 metadata:
   name: nginx-declar
 spec:
@@ -73,6 +80,11 @@ spec:
     app: nginx-declar
 
 ```
+
+<img width="544" alt="image" src="https://github.com/user-attachments/assets/c24d5260-cf40-4bbd-994c-ba058a3ea54a">
+
+
+
 
 ### Quotas
 
