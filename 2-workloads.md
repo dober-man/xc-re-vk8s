@@ -20,7 +20,7 @@ define and create our entire sample nginx application which includes the deploym
 
 Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name". 
 
-From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form. CHoose **Service**. 
+From the Workloads tab, click "Add vK8s workload" and use the screenshot to configure the initial form. Choose **Service**. 
 
 <img width="957" alt="image" src="https://github.com/user-attachments/assets/57886aee-84df-40cd-979b-e322b0060650">
 
