@@ -15,7 +15,7 @@ If your app is stateless, doesn't require unique identities or dedicated storage
 > **Note:** The test container/image used in this setup is a public nginx container that runs unpriviledged. This is necessary per the restrictions listed above in the diagram. The container natively starts on a high unpriviledged port (8080) that does not require root to bind to. 
 
 ## Workloads
-Starting with the most commonly used and flexible method to deploy vK8s services, we will use a workload to 
+Starting with the most commonly used method to deploy vK8s services, we will use a workload to 
 define and create our entire sample nginx application which includes the deployment, pods, service, replication sets,  and service mesh with optional volumes, load balancer and origin pool.
 
 Distributed Apps -> Applications -> Virtual K8s -> "Click on your vK8s name". 
