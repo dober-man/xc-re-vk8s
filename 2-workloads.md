@@ -142,7 +142,7 @@ Review the stats and click close. Click the "Requests" tab at the top and review
 
 <img width="1135" alt="image" src="https://github.com/user-attachments/assets/e005c4c5-a6b8-47ee-9094-96cedbcce930">
 
-Click back on the "Service Graph" tab but this time **double-click** on the icon for the service. 
+Click back on the "Service Graph" tab but this time **double-click** on the icon for the service. This is a view of all the RE sites defined in the virtual site that is hosting this vK8s app. 
 
 <img width="790" alt="image" src="https://github.com/user-attachments/assets/d225690c-c86e-4997-8441-bf30c7331e2a">
 
