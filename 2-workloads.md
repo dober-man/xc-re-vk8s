@@ -51,7 +51,7 @@ AoI objects are created and managed by the workload. For example, you can not di
 
 This setting is similar to AoI and while this automatically creates a vK8s service, it does not create an origin pool or load balancer. It will be up to the admin to define the origin pool, create the load balancer, add security policy and deploy it to the Virtual Site appropriate to provide access to the service. For example, a load balancer running on a CE, publishing services to other clusters or to internal clients. 
 
-The benefit of this model is the entire suite of XC security services can be configured on the load balancer that weren't exposed in the AoI model. You can add WAAP, API Discovery, Bot mitigation and a whole bunch of other XC security services to protect the app. You can modify the load balancer and orgin pool at whim. 
+The benefit of this model is the entire suite of XC security services can be configured on the load balancer that weren't exposed in the AoI model. You can add WAAP, API Discovery, Bot mitigation and a whole bunch of other XC security services to protect the app. You can modify the load balancer and origin pool at whim. There are some restrictions around which security features are available when running the load balancer on the CE, but those are outside the scope of this lab which is 100% Regional Edge Deployment. 
 
 Either method (AoI or AiC) could be used to publish the app or service but which method you use will determine which post-deployment features are available for the service. We will explore the configuration and outcome of each method now. 
 
@@ -197,4 +197,4 @@ Test access by browsing to: http://nginx.example.com
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/0ecd2c51-2f49-4338-8529-64f2952ac282">
 
-**This concludes the Workloads learning section.**
+**This concludes the Workloads learning section. Continue to 3-deployments.**

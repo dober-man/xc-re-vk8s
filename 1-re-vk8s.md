@@ -47,8 +47,8 @@ Clicking on the vK8s name hyperlink will take you into the configurable area. No
 <img width="1112" alt="image" src="https://github.com/user-attachments/assets/e138fdfa-709a-495a-a903-cab7e5f9255a">
 
 
-### Download your Kubeconfig file (optional)
-You can use the kubeconfig file locally to manage resources in XC Console vK8s and/or you can manage resources directly within the XC Console by pasting in your yaml definitions. We will look at both methods. 
+### Download your Kubeconfig file
+You can use the kubeconfig file locally to manage resources in XC Console vK8s and/or you can manage resources directly within the XC Console by pasting in your YAML definitions. Both methods are tested and described in these labs but there is also a 3rd way to manage vK8s and that is via the XC API which is not covered....maybe that can be section 10 at some point. 
 
 Distributed Apps -> Applications -> Virtual K8s -> Click the "3 dots" under the Actions menu on the far right -> Kubeconfig -> select a security conscious expiration date and **treat this file appropriately as it contains highly sensitive data.**  
 
