@@ -2,25 +2,88 @@
 
 When to use a Deployment?
 
-Stateless applications where:
+Deployments are best suited for stateless applications where:
 * The identity of individual pods doesn't matter.
 * Pods are ephemeral and can be replaced at any time without issues (e.g., web servers serving static content, microservices without data persistence).
-* There's no need for persistent storage or storage can be shared across pods using something like a shared volume.
+* There's no need for persistent storage or
+* Storage can be shared across pods using something like a shared volume (PVC).
 
 Deployments require a more fundamental understanding of the various components of a K8s environment and will require more manual stitching of the various components than deploying via workloads.  
 
-**Imperative Deployment and Expose Service**
-Using the downloaded kubeconfig file from earlier, imperatively create a deployment named nginx-imper and expose.
+## Imperative Deployment and Expose Service
+Using the downloaded kubeconfig file from earlier, imperatively create a deployment named nginx-imper and expose. THis is a quick and easy way to test that everything is working as expected. 
 
-In this example my kubeconfig file was named **"vK8s.kubeconfig"**. This command creates a deployment called "nginx-imper" using the example nginx app container on port 8080. It then exposes the nginx service as ClusterIP on port 2000. 
+In this example my kubeconfig file was named **"vK8s.kubeconfig"**. This command imperatively creates a deployment called "nginx-imper" using the example nginx app container on port 8080. It then exposes the nginx service as ClusterIP on port 2000. Notice there is no reference to a YAML file in this command other than the kubeconfig which is auth. 
 
 ```
 kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
 
-**Declarative Deployment**
+## Declarative Deployment
+For declarative, you could either paste the YAML into the XC Console form under "Deployments" or save the YAML in local files on your client and reference with kubectl. We will show both examples below. 
+
+Navigate to the "Deployments" tab and click "Add Deployment". You should still see a deployment running from the previous workloads exercise. 
+
+<img width="1123" alt="image" src="https://github.com/user-attachments/assets/00bf5427-ac7c-48f3-a6de-b49732eb95f7">
+
+Paste in the metadata on **line 2** underneath "Kind: Deployment"
+
 ```
-apiVersion: apps/v1
+metadata:
+  name: nginx-declar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-declar
+  template:
+    metadata:
+      labels:
+        app: nginx-declar
+    spec:
+      containers:
+      - name: nginx-declar
+        image: ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "150Mi"
+          requests:
+            cpu: "250m"
+            memory: "100Mi"
+```
+
+<img width="524" alt="image" src="https://github.com/user-attachments/assets/466c4e47-2206-4429-9323-f06010959221">
+
+
+**Declarative Service**
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-declar
+spec:
+  type: ClusterIP
+  ports:
+  - port: 2000
+    targetPort: 8080
+  selector:
+    app: nginx-declar
+
+```
+
+### Quotas
+
+why dont declarative pods come up? resource limits per vk8s - delete imperative 
+cover quotas. CPU Limits refer to the maximum amount of CPU resources that a container or workload can use.
+CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
+
+
+Declarative with kubectl
+
+```
 kind: Deployment
 metadata:
   name: nginx-declar
@@ -48,27 +111,10 @@ spec:
             memory: "100Mi"
 ```
 
-**Declarative Service**
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-declar
-spec:
-  type: ClusterIP
-  ports:
-  - port: 2000
-    targetPort: 8080
-  selector:
-    app: nginx-declar
 
-```
 
-### Quotas
 
-why dont declarative pods come up? resource limits per vk8s - delete imperative 
-cover quotas. CPU Limits refer to the maximum amount of CPU resources that a container or workload can use.
-CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
+
 
 ### Publish Declarative service
 modify existing k8s svc pool - test. 
