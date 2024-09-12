@@ -26,14 +26,19 @@ Click on the "Deployments" tab and click "Refresh". You should see your new depl
 
 <img width="1116" alt="image" src="https://github.com/user-attachments/assets/01df9b7e-9eb5-41f4-8611-b2e8c865b0ea">
 
+Click on the "Services" tab and click "Refresh". You should see your new service running alongside of the service already created from the workload earlier and default kubeapi service. 
 
+<img width="1121" alt="image" src="https://github.com/user-attachments/assets/b54277e9-22f3-4726-b7e4-551b7f0eaf27">
+
+You could now create a load balancer and origin pool and reference this service like we did in the previous workloads lab - AiC section. We will do this momentarily. 
 
 ## Declarative Deployment
 For declarative, you could either paste the YAML into the XC Console form under "Deployments" or save the YAML in local files on your client and reference with kubectl. We will show both examples below. 
 
-Navigate to the "Deployments" tab and click "Add Deployment". You should still see a deployment running from the previous imperative exercise. 
+### Declarative via XC Console
+Navigate to the "Deployments" tab and click "Add Deployment". You should still see deployments running from the previous workload and imperative exercises. 
 
-<img width="1123" alt="image" src="https://github.com/user-attachments/assets/00bf5427-ac7c-48f3-a6de-b49732eb95f7">
+<img width="1130" alt="image" src="https://github.com/user-attachments/assets/cd2dc16c-2a67-448a-8779-d1acd5f4b1ee">
 
 Paste in the metadata on **line 2** underneath "Kind: Deployment" and click "Save".
 
@@ -102,7 +107,7 @@ cover quotas. CPU Limits refer to the maximum amount of CPU resources that a con
 CPU Requests are the guaranteed amount of CPU that the workload will be allocated to run.
 
 
-Declarative with kubectl
+#### Declarative with kubectl
 
 ```
 kind: Deployment
