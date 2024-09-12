@@ -1,7 +1,7 @@
 # Workloads, Deployments, Stateful Sets or Daemon Sets?
 All are valid methods to deploy the application with each offering it's own unique capabilities. 
 
-If your app is stateless, doesn't require unique identities or dedicated storage for each instance, and doesn't need to run on every node, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
+If your app is stateless, doesn't require unique identities or dedicated storage for each instance, you may not need a StatefulSet or DaemonSet. In this scenario, Workloads or Deployments are typically the best choice, as they are designed for stateless applications that require scaling without the added functionality of StatefulSets or DaemonSets.
 
  **Workloads** are a non-native Kubernetes construct and are an abstract (XC) definition of groups of objects to be deployed. Workloads are similar to deployments but one logical layer above them.....or an umbrella of vK8s objects, making it easier for users to interact with Kubernetes resources in a more simplified, higher-level manner. You would use the XC API or Console UI to deploy and manage workloads. More info [here](https://docs.cloud.f5.com/docs-v2/api/views-workload) and [here](https://docs.cloud.f5.com/docs-v2/platform/reference/api-ref/ves-io-schema-views-workload-api-replace).
 
