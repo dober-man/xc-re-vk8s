@@ -15,9 +15,14 @@ Using the downloaded kubeconfig file from earlier, imperatively create a deploym
 
 In this example my kubeconfig file was named **"vK8s.kubeconfig"**. This command imperatively creates a deployment called "nginx-imper" using the example nginx app container on port 8080. It then exposes the nginx service as ClusterIP on port 2000. Notice there is no reference to a YAML file in this command other than the kubeconfig which is auth. 
 
+Run this command from your local client where you have kubectl installed. I installed kubectl and ran this from my Macbook.
+
 ```
 kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
+Note - you may see a bunch of **"96483 memcache.go:287 couldn't get resource list for X"** error messages. These can safely be ignored.   
+
+
 
 ## Declarative Deployment
 For declarative, you could either paste the YAML into the XC Console form under "Deployments" or save the YAML in local files on your client and reference with kubectl. We will show both examples below. 
