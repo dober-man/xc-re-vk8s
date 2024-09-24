@@ -1,7 +1,5 @@
 # Deployments
 
-When to use a Deployment?
-
 Deployments are best suited for stateless applications where:
 * The identity of individual pods doesn't matter.
 * Pods are ephemeral and can be replaced at any time without issues (e.g., web servers serving static content, microservices without data persistence).
@@ -10,8 +8,10 @@ Deployments are best suited for stateless applications where:
 
 Deployments require a more fundamental understanding of the various components of a K8s environment and will require more manual stitching of the various components than deploying via workloads.  
 
+Deployments can be configured and managed via kubectl, XC Console UI or XC API.  
+
 ## Imperative Deployment and Expose Service
-Using the downloaded kubeconfig file from earlier, imperatively create a deployment named nginx-imper and expose. THis is a quick and easy way to test that everything is working as expected. 
+Using the downloaded kubeconfig file from earlier, imperatively create a deployment named nginx-imper and expose. This is a quick and easy way to test that everything is working as expected. 
 
 In this example my kubeconfig file was named **"vK8s.kubeconfig"**. This command imperatively creates a deployment called "nginx-imper" using the example nginx app container on port 8080. It then exposes the nginx service as ClusterIP on port 2000. Notice there is no reference to a YAML file in this command other than the kubeconfig which is auth. 
 
@@ -20,7 +20,7 @@ Run this command from your local client where you have kubectl installed. I inst
 ```
 kubectl --kubeconfig=vK8s.kubeconfig create deployment nginx-imper --image=ghcr.io/nginxinc/nginx-unprivileged:1.27.1-bookworm-perl && kubectl --kubeconfig=vK8s.kubeconfig expose deployment nginx-imper --type=ClusterIP --port=2000 --target-port=8080
 ```
-> **Note:** - you may see a bunch of **"96483 memcache.go:287 couldn't get resource list for X"** status messages. This happens if features are restricted or disabled and can safely be ignored. 
+> **Note:** - you may see a bunch of **"96483 memcache.go:287 couldn't get resource list for X"** status messages. This happens if features are restricted or disabled (such as in a vK8s environment) and can safely be ignored. 
 
 Click on the "Deployments" tab and click "Refresh". You should see your new deployment running alongside of the deployment already created from the workload earlier. 
 
